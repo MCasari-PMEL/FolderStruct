@@ -12,10 +12,10 @@ class Grid:
 
 #Subsystem Subclass
 class SubSystem:
-    def __init__(self,root,numsubs):
+    def __init__(self,numsubs):
         self.grid = Grid()
         
-        self.master = root
+        self.master = Tk()
 
         self.header1()
         self.split()
@@ -149,7 +149,7 @@ class SubSystem:
 
             for i in range(0,self.numsubs):
                 self.name[i] = self.name_entry[i].get()
-                print(self.name[i])
+                #print(self.name[i])
         except:
             print("Invalid")
             
@@ -158,8 +158,8 @@ class SubSystem:
         self.master.destroy()
 
 
-master = Tk()
-ss1 = SubSystem(master,4)
-
-
-mainloop()
+##master = Tk()
+##ss1 = SubSystem(4)
+##
+##
+##mainloop()

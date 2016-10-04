@@ -82,6 +82,17 @@ class Moor:
     def toggle_diag(self):
         return
 
+class Software:
+    def __init__(self):
+        self.top = IntVar()
+        self.gui = IntVar()
+        self.userman = IntVar()
+    def toggle(self):
+        self.gui.set(self.top.get())
+        self.userman.set(self.top.get())
+    def toggle_gui(self):
+        self.userman.set(self.gui.get())
+
 #Test Subclass
 class FTest:
     def __init__(self):
@@ -114,3 +125,8 @@ class Docu:
         self.top = IntVar()
     def toggle(self):
         return
+
+class Purchases:
+    def __init__(self):
+        self.top = IntVar()
+        self

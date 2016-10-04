@@ -46,6 +46,10 @@ class FileStructure:
         self.moor = Moor()
         self.addMooring(self.moor,0)
 
+        #Software
+        self.soft = Software()
+        self.addSoftware(self.soft,0)
+
         #Photos
         self.photos = Photos()
         self.addPhotos(self.photos,0)
@@ -77,7 +81,8 @@ class FileStructure:
         self.grid.add(10)
 
         #self.grid.add()
-        self.qButton = Button(self.master,text="Finished",command=self.quit).grid(row=self.grid.current(),column=3)
+##        self.qButton = Button(self.master,text="Finished",command=self.quit).grid(row=self.grid.current(),column=3)
+        self.qButton = Button(self.master,text="Finished",command=self.quit,font="Helvetica 12 bold",bg="green").grid(row=self.grid.add(),column=3)
         #,sticky=E+S,pady=4
     def SetInt(self):
         #mechanical systems
@@ -157,6 +162,11 @@ class FileStructure:
         path.bath = self.addPathWithCommand("Bathymetry",level+1,path.toggle_bath)
         path.diag = self.addPathWithCommand("Diagrams",level+1,path.toggle_diag)
 
+    def addSoftware(self,path,level):
+        path.top = self.addPathWithCommand("Software",level,path.toggle)
+        path.gui = self.addPathWithCommand("GUI",level+1,path.toggle_gui)
+        path.userman = self.addFile("User Manual",level+2)
+
     def addPhotos(self,path,level):
         path.top = self.addPathWithCommand("Photos",level,path.toggle)
 
@@ -186,6 +196,7 @@ class FileStructure:
         temp = Label(self.master,text=('Subfolder Level 1'),font="Calibri 11 bold").grid(row=self.grid.current(),column=1)
         temp = Label(self.master,text=('Subfolder Level 3'),font="Calibri 11 bold").grid(row=self.grid.current(),column=2)
         temp = Label(self.master,text=('Subfolder Level 4'),font="Calibri 11 bold").grid(row=self.grid.current(),column=3)
+        
     def quit(self):
         #self.sub1.name = self.sub1.name_entry.get()
         try:
@@ -198,9 +209,9 @@ class FileStructure:
 
 
 
-fs = FileStructure()
-
-mainloop()
+##fs = FileStructure()
+##
+##mainloop()
 
 
 
