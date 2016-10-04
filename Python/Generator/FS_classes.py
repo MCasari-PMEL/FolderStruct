@@ -1,5 +1,6 @@
 from tkinter import *
 
+
 #Electrical Subclass
 class Elec:
     def __init__(self):
