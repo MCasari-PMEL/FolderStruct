@@ -115,22 +115,6 @@ class Cruise:
         self.report.set(self.top.get())
         self.data.set(self.top.get())
 
-#Subsystem Subclass
-class SubSys:
-    def __init__(self):
-        self.name_entry = 0
-        self.name = 0
-        self.top = IntVar()
-        self.elec = Elec()
-        self.mech = Mech()
-        self.bom = IntVar()
-        self.userman = IntVar()
-
-    def toggle(self):
-        self.elec.toggle()
-        self.mech.toggle()
-        self.bom.set(self.top.get())
-        self.userman.set(self.top.get())
 
 #Main File Structure
 class FileStructure:
@@ -142,9 +126,7 @@ class FileStructure:
         self.master.resizable(width=False,height=True)
         #self.master.geometry('{}x{}'.format(600,1100))
         #self.master.geometry("550x800+30+30")
-    
-        #self.scrollbar = Scrollbar(self.master,side=RIGHT)
-        #self.scrollbar.pack(side=RIGHT,fill=Y)
+
         
         self.header()
         self.split()
@@ -190,7 +172,7 @@ class FileStructure:
         self.subsystem = self.addPath("SubSystems",0)
         #self.sub1 = SubSys()
         self.numsub_val = self.addNumberOfSubsystems(1)
-        self.sub1 = self.addSubsystem(1)
+        #self.sub1 = self.addSubsystem(1)
 
         print(self.grid.current())
         self.grid.add(10)
@@ -317,6 +299,8 @@ print("Start ")
 fs = FileStructure()
 
 mainloop()
+
+
 
 
 
