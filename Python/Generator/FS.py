@@ -71,9 +71,8 @@ class FileStructure:
         self.numsub_val = self.addNumberOfSubsystems(1)
         #self.sub1 = self.addSubsystem(1)
 
-        print(self.grid.current())
         self.grid.add(10)
-        print(self.grid.current())
+
         #self.grid.add()
         self.qButton = Button(self.master,text="Finished",command=self.quit).grid(row=self.grid.current(),column=3)
         #,sticky=E+S,pady=4
@@ -187,11 +186,11 @@ class FileStructure:
             self.numsubs = int(self.numsub_val.get())
         except:
             self.numsubs = 0
-        print(self.numsubs)
+     
         self.master.quit
         self.master.destroy()
 
-print("Start ")
+
 
 fs = FileStructure()
 
