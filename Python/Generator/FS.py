@@ -120,55 +120,28 @@ class FileStructure:
         #Mechanical
         #self.split()
         self.mech = Mech()
-        self.mech.top = self.addPathWithCommand('Mechanical',0,self.mech.toggle)
-        self.mech.drawings = self.addPathWithCommand('Drawings',1,self.mech.toggle_drawings)
+        self.addMechanical(self.mech,0)
+##        self.mech.top = self.addPathWithCommand('Mechanical',0,self.mech.toggle)
+##        self.mech.drawings = self.addPathWithCommand('Drawings',1,self.mech.toggle_drawings)
 
 
         #Electrical
         #self.split()
         self.elec = Elec()
         self.addElectrical(self.elec,0)
-##        self.elec.top = self.addPathWithCommand("Electrical",0,self.elec.toggle)
-##        self.elec.bom = self.addFile("BOM.csv",1)
-##        self.elec.powerbudget = self.addFile("PowerBudget.csv",1)
-##        self.elec.interfacedoc = self.addFile("InterfaceDocument",1)
-##        self.elec.userman = self.addFile("User Manual",1)
-##        self.elec.wd = self.addPathWithCommand("Wire Diagrams",1,self.elec.toggle_wd)
-##        self.elec.wd_template = self.addFile("Template",2)
-##        self.elec.schem_path = self.addPathWithCommand("Schematics",1,self.elec.toggle_schem)
-##        self.elec.schem_template = self.addFile("Template",2)
-##        self.elec.firm.top = self.addPathWithCommand("Firmware",1,self.elec.firm.toggle)
-##        
-##        self.elec.firm.api = self.addFile("API Document",2)
-##        self.elec.firm.readme = self.addFile("README.md",2)
-##        self.elec.firm.source = self.addPathWithCommand("Source",2,self.elec.firm.toggle_source)
-##        self.elec.firm.source_c = self.addFile("source.c",3)
-##        self.elec.firm.source_h = self.addFile("source.h",3)
-##
-##        self.elec.firm.binaries = self.addPath("Binaries",2)
-##        self.top = IntVar()
-##        self.binaries = IntVar()
-##        self.api = IntVar()
-##        self.readme = IntVar()
-##        self.source = IntVar()
-##        self.source_c = IntVar()
-##        self.source_h = IntVar()
+
         #Mooring
         #self.split()
         self.moor = Moor()
         self.addMooring(self.moor,0)
-##        self.moor.top = self.addPathWithCommand("Mooring",0,self.moor.toggle)
-##        self.moor.bath = self.addPathWithCommand("Bathymetry",1,self.moor.toggle_bath)
-##        self.moor.diag = self.addPathWithCommand("Diagrams",1,self.moor.toggle_diag)
+
 
         
         #Test
         #self.split()
         self.test = FTest()
         self.addTest(self.test,0)
-##        self.test.top = self.addPathWithCommand("Test",0,self.test.toggle)
-##        self.test.report = self.addFile("Test Report",1)
-##        self.test.data = self.addPath("Data",1)
+
         
 
         #Subsystem
@@ -189,7 +162,9 @@ class FileStructure:
         #electrical systems
         self.elec.set(1)
         self.elec_wd.set(1)
-  
+    def addMechanical(self,path,level):
+        path.top = self.addPathWithCommand('Mechanical',level,path.toggle)
+        path.drawings = self.addPathWithCommand('Drawings',level+1,path.toggle_drawings)
                                
     def get(self):
         self.Mechanical = self.mech.top.get()
