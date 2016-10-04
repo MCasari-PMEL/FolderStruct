@@ -59,6 +59,9 @@ class FileStructure:
         self.test = FTest()
         self.addTest(self.test,0)
 
+        #Documentation
+        self.docu = Docu()
+        self.addDocumentation(self.docu,0)
         
 
         #Subsystem
@@ -166,6 +169,9 @@ class FileStructure:
         path.top = self.addPathWithCommand("Test",level,path.toggle)
         path.report = self.addFile("Test Report",level + 1)
         path.data = self.addPath("Data",level+1)
+        
+    def addDocumentation(self,path,level):
+        path.top = self.addPathWithCommand('Documentation',level,path.toggle)
         
     def split(self,level=0):
         
