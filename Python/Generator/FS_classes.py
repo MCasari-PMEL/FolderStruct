@@ -16,6 +16,7 @@ class Elec:
         self.schem_template = IntVar()
         self.firm = Firm()
         self.photos = IntVar()
+        self.datasheets = IntVar()
     def toggle(self):
         #self.top.set(self.wd.get()^1)
         self.wd_template.set(self.top.get())
@@ -30,6 +31,7 @@ class Elec:
         self.photos.set(self.top.get())
         self.firm.top.set(self.top.get())
         self.firm.toggle()
+        self.datasheets.set(self.top.get())
     def toggle_schem(self):
         self.schem_template.set(self.schem_path.get())
 
@@ -106,3 +108,9 @@ class Cruise:
     def toggle(self):
         self.report.set(self.top.get())
         self.data.set(self.top.get())
+
+class Docu:
+    def __init__(self):
+        self.top = IntVar()
+    def toggle(self):
+        return
