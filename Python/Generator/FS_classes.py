@@ -63,9 +63,14 @@ class Mech:
     def __init__(self):
         self.top = IntVar()
         self.assemblies = IntVar()
+        self.drawings = IntVar()
     def toggle(self):
         self.assemblies.set(self.top.get())
+        self.drawings.set(self.top.get())
+        
     def toggle_assemblies(self):
+        return
+    def toggle_drawings(self):
         return
 
 #Mooring Subclass
@@ -127,9 +132,11 @@ class Docu:
         self.top = IntVar()
         self.projreqs = IntVar()
         self.userman = IntVar()
+        self.deploy = IntVar()
     def toggle(self):
         self.projreqs.set(self.top.get())
         self.userman.set(self.top.get())
+        self.deploy.set(self.top.get())
         return
 
 class Purchases:

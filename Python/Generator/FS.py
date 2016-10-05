@@ -140,7 +140,7 @@ class FileStructure:
     def addMechanical(self,path,level):
         path.top = self.addPathWithCommand('Mechanical',level,path.toggle)
         path.assemblies = self.addPathWithCommand('Assemblies',level+1,path.toggle_assemblies)
-        
+        path.drawings = self.addPathWithCommand('Drawings',level+1,path.toggle_drawings)
     def addElectrical(self,path,level):
         path.top = self.addPathWithCommand("Electrical",level,path.toggle)
         path.bom = self.addFile("BOM.csv",level+1)
@@ -191,6 +191,7 @@ class FileStructure:
         path.top = self.addPathWithCommand('Documentation',level,path.toggle)
         path.projreqs = self.addFile('Project Requirements',level+1)
         path.userman = self.addFile('User Manual',level+1)
+        path.deploy = self.addPath('Deployment Notes',level+1)
 
     def addPurchases(self,path,level):
         path.top = self.addPathWithCommand('Purchases',level,path.toggle)

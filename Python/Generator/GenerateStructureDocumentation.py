@@ -20,7 +20,13 @@ def DOCU_Generate_ProjectReqs_Template(pathVal,tPath):
 def DOCU_Generate_UserManual_Template(pathVal,tPath):
     print("-Project Requirements")
     COPY_UserManual(tPath,pathVal)
-    
+
+def DOCU_Generate_Deploymentnotes_Folder(pathVal):
+    print("+Deployment Notes")
+    tempPath = os.path.join(pathVal,'Deployment')
+    os.makedirs(tempPath)
+    return
+
 def DOCU_Generate(docu,path,level,templatePath):
     #print("\n********************************************")
     #print("Generating Mooring System Files & Folders\n")
@@ -40,3 +46,7 @@ def DOCU_Generate(docu,path,level,templatePath):
     if(docu.userman.get()):
         GenerateSpaces(level+1)
         DOCU_Generate_UserManual_Template(dPath,templatePath)
+
+    if(docu.deploy.get()):
+        GenerateSpaces(level+1)
+        DOCU_Generate_Deploymentnotes_Folder(dPath)

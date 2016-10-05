@@ -65,7 +65,7 @@ class SubSystem:
         self.userman[num].set(self.top.get())
     def addSubsytemName(self,level,rval,sysnum):
         name = Entry(self.master)
-        name.insert(10,"SubSys#" + str(sysnum))
+        name.insert(10,"SubSys#" + str(sysnum+1))
         name.grid(row=rval,column=level)
         return name
     
@@ -94,7 +94,7 @@ class SubSystem:
     def addMechanical(self,path,level):
         path.top = self.addPathWithCommand('Mechanical',level,path.toggle)
         path.assemblies = self.addPathWithCommand('Assemblies',level+1,path.toggle_assemblies)
-
+        path.drawings = self.addPathWithCommand('Drawings',level+1,path.toggle_drawings)
     def addPhotos(self,path,level):
         path.top = self.addPathWithCommand('Photos',level,path.toggle)
 
