@@ -31,7 +31,7 @@ def SUBS_Generate_UserManual_Template(pathVal):
     print("-User Manual Template")
     return
 
-def SUBS_Generate(subs,pathVal,level):
+def SUBS_Generate(subs,pathVal,level,template):
     if(subs.numsubs == 0):
         return
     GenerateSpaces(level)
@@ -59,11 +59,11 @@ def SUBS_Generate(subs,pathVal,level):
         
         #Generate the electrical folder
         #GenerateSpaces(level+1)
-        ELEC_Generate(subs.elec,path,level+3)
+        ELEC_Generate(subs.elec,path,level+3,template)
         
         #Generate the mechanical folder
         #GenerateSpaces(level+1)
-        MECH_Generate(subs.mech,path,level+3)
+        MECH_Generate(subs.mech,path,level+3,template)
         
         #Generate the photo folder
         #GenerateSpaces(level+1)
@@ -71,7 +71,6 @@ def SUBS_Generate(subs,pathVal,level):
         
         #Generate the documentation folder
         #GenerateSpaces(level+1)
-        DOCU_Generate(subs.docu,path,level+3)
+        DOCU_Generate(subs.docu,path,level+3,template)
     
         
-    

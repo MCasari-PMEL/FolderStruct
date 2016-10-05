@@ -61,7 +61,7 @@ os.makedirs(project_path)
 ELEC_Generate(fs.elec,project_path,1,template_path)
 
 #Generate all Mechanical Folders & Files
-MECH_Generate(fs.mech,project_path,1)
+MECH_Generate(fs.mech,project_path,1,template_path)
 
 #Generate all Firmware Folders & Files
 MOOR_Generate(fs.moor,project_path,1)
@@ -86,7 +86,7 @@ PURC_Generate(fs.purc,project_path,1)
 
 #Generate all Subsystems
 if(fs.numsubs > 0):
-    SUBS_Generate(ss,project_path,1)
+    SUBS_Generate(ss,project_path,1,template_path)
 
 
 #print(templatePath)

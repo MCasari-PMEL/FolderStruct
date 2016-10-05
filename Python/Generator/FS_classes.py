@@ -62,10 +62,10 @@ class Firm:
 class Mech:
     def __init__(self):
         self.top = IntVar()
-        self.drawings = IntVar()
+        self.assemblies = IntVar()
     def toggle(self):
-        self.drawings.set(self.top.get())
-    def toggle_drawings(self):
+        self.assemblies.set(self.top.get())
+    def toggle_assemblies(self):
         return
 
 #Mooring Subclass

@@ -93,7 +93,7 @@ class SubSystem:
         
     def addMechanical(self,path,level):
         path.top = self.addPathWithCommand('Mechanical',level,path.toggle)
-        path.drawings = self.addPathWithCommand('Drawings',level+1,path.toggle_drawings)
+        path.assemblies = self.addPathWithCommand('Assemblies',level+1,path.toggle_assemblies)
 
     def addPhotos(self,path,level):
         path.top = self.addPathWithCommand('Photos',level,path.toggle)

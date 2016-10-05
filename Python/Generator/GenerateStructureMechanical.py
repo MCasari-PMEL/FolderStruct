@@ -14,12 +14,12 @@ def MECH_Generate_Top_Folder(pathVal):
     return
 
 def MECH_Generate_Drawings_Folder(pathVal):
-    print("+Drawing Folder")
-    tempPath = os.path.join(pathVal,'Drawings')
+    print("+Assemblies Folder")
+    tempPath = os.path.join(pathVal,'Assemblies')
     os.makedirs(tempPath)
     return
 
-def MECH_Generate(mech,pathVal,level):
+def MECH_Generate(mech,pathVal,level,template):
     #print("\n********************************************")
     #print("Generating Mechanical System Files & Folders\n")
 
@@ -29,7 +29,7 @@ def MECH_Generate(mech,pathVal,level):
     MECH_Generate_Top_Folder(pathVal)
     mPath = os.path.join(pathVal,'Mechanical')
     #Gen Drawings
-    if(mech.drawings.get()):
+    if(mech.assemblies.get()):
         GenerateSpaces(level+1)
         MECH_Generate_Drawings_Folder(mPath)
         
