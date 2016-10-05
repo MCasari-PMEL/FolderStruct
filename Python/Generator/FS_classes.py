@@ -7,7 +7,7 @@ class Elec:
         #Initialize variables
         self.top = IntVar()
         self.bom = IntVar()
-        self.userman = IntVar()
+        #self.userman = IntVar()
         self.powerbudget = IntVar()
         self.interfacedoc = IntVar()
         self.wd = IntVar()
@@ -21,7 +21,7 @@ class Elec:
         #self.top.set(self.wd.get()^1)
         self.wd_template.set(self.top.get())
         self.bom.set(self.top.get())
-        self.userman.set(self.top.get())
+        #self.userman.set(self.top.get())
         self.powerbudget.set(self.top.get())
         self.wd.set(self.top.get())
         self.wd_template.set(self.top.get())
@@ -99,9 +99,11 @@ class FTest:
         self.top = IntVar()
         self.data = IntVar()
         self.report = IntVar()
+        self.plan = IntVar()
     def toggle(self):
         self.data.set(self.top.get())
         self.report.set(self.top.get())
+        self.plan.set(self.top.get())
     def toggle_data(self):
         return
 
@@ -123,10 +125,16 @@ class Cruise:
 class Docu:
     def __init__(self):
         self.top = IntVar()
+        self.projreqs = IntVar()
+        self.userman = IntVar()
     def toggle(self):
+        self.projreqs.set(self.top.get())
+        self.userman.set(self.top.get())
         return
 
 class Purchases:
     def __init__(self):
         self.top = IntVar()
         self
+    def toggle(self):
+        return

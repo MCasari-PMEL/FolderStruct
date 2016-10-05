@@ -26,7 +26,7 @@ class SubSystem:
         self.numsubs = numsubs
         for i in range(0,numsubs):
             Label(self.master,text="Subsystem #" + str(i+1)).grid(row=self.grid.add())
-            self.name_entry.append(self.addSubsytemName(1,self.grid.current()))
+            self.name_entry.append(self.addSubsytemName(1,self.grid.current(),i))
             self.name.append(0)
             self.grid.add()
         #self.name_entry = self.addSubsytemName(0)
@@ -63,9 +63,9 @@ class SubSystem:
         self.mech[num].toggle()
         self.bom[num].set(self.top.get())
         self.userman[num].set(self.top.get())
-    def addSubsytemName(self,level,rval):
+    def addSubsytemName(self,level,rval,sysnum):
         name = Entry(self.master)
-        name.insert(10,"SubSys Name")
+        name.insert(10,"SubSys#" + str(sysnum))
         name.grid(row=rval,column=level)
         return name
     

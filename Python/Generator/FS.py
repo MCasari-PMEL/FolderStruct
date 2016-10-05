@@ -66,6 +66,10 @@ class FileStructure:
         #Documentation
         self.docu = Docu()
         self.addDocumentation(self.docu,0)
+
+        #Purchases
+        self.purc = Purchases()
+        self.addPurchases(self.purc,0)
         
 
         #Subsystem
@@ -142,7 +146,8 @@ class FileStructure:
         path.bom = self.addFile("BOM.csv",level+1)
         path.powerbudget = self.addFile("PowerBudget.csv",level+1)
         path.interfacedoc = self.addFile("InterfaceDocument",level+1)
-        path.userman = self.addFile("User Manual",level+1)
+        #path.userman = self.addFile("User Manual",level+1)
+        path.datasheets = self.addPath("Datasheets",level+1)
         path.wd = self.addPathWithCommand("Wire Diagrams",level+1,path.toggle_wd)
         path.wd_template = self.addFile("Template",level+2)
         path.schem_path = self.addPathWithCommand("Schematics",level+1,path.toggle_schem)
@@ -178,11 +183,17 @@ class FileStructure:
     def addTest(self,path,level):
         path.top = self.addPathWithCommand("Test",level,path.toggle)
         path.report = self.addFile("Test Report",level + 1)
+        path.plan = self.addFile("Plan",level+1)
         path.data = self.addPath("Data",level+1)
+        
         
     def addDocumentation(self,path,level):
         path.top = self.addPathWithCommand('Documentation',level,path.toggle)
-        
+        path.projreqs = self.addFile('Project Requirements',level+1)
+        path.userman = self.addFile('User Manual',level+1)
+
+    def addPurchases(self,path,level):
+        path.top = self.addPathWithCommand('Purchases',level,path.toggle)
     def split(self,level=0):
         
         temp = Label(self.master,text=('__________________________')).grid(row = self.grid.add(),column=0)
